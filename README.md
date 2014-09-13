@@ -30,7 +30,7 @@ In singleplayer/impossible mode, you move the paddle on the left side with the a
 
 #### Breakout
 
-First time you start the game, only the first level (0) should be unlocked. Beat it to open the next one. In the menu, pressing "highscores" will print them to the command-line window. In-game, you move the paddle with the mouse, and release the ball with Mouse 1. Destroy all the bricks to pass on to the next level. Lose the three lives and you're thrown back to the menu. You may also get various bonuses/curses anytime you break a brick. Also, the levels may or may not be actually finished, if you want to edit them yourself, you can find them in ./games/breakout/levels/ (they're self-explanatory .txt files).
+First time you start the game, only the first level (0) should be unlocked. Beat it to open the next one. In the menu, pressing "highscores" will print them to the command-line window. In-game, you move the paddle with the mouse, and release the ball with Mouse 2. Destroy all the bricks to pass on to the next level. Lose the three lives and you're thrown back to the menu. You may also get various bonuses/curses anytime you break a brick. Also, the levels may or may not be actually finished, if you want to edit them yourself, you can find them in ./games/breakout/levels/ (they're self-explanatory .txt files).
 
 #### Invaders
 
