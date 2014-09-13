@@ -1,6 +1,3 @@
-Sorry, I'm figuring things out, now idea how this all works.
-
-
 # RetPro
 
 A "handheld console" with clones of some legendary, classic games:
