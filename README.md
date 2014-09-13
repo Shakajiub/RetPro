@@ -1,8 +1,7 @@
 Sorry, I'm figuring things out, now idea how this all works.
 
 
-RetPro
-======
+# RetPro
 
 A "handheld console" with clones of some classic games, written in Python + Pygame. Currently includes Pong, Breakout & Space Invaders.
 
@@ -15,7 +14,7 @@ A "handheld console" with clones of some classic games, written in Python + Pyga
 
 ### Starting/Playing
 
-Launch RetPro.py, and you should see this (without the game started):
+Launch _RetPro.py_, and you should see this (without the game started):
 
 ![TITLE](/main.png)
 
