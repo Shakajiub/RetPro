@@ -1,6 +1,6 @@
 #!usr/bin/env python3
 
-# Version 1.1.2 25.2.2014
+# Version 1.1.3 13.9.2014
 # Copyright 2014 Jere Oikarinen
 
 #    This file is part of RetPro.
@@ -41,7 +41,7 @@ D_GRAY = (140,140,140)
 
 class New_Cannon():
 
-    def __init__(self,x,y,images,speed):
+    def __init__(self, x, y, images, speed):
 
         #Setup the image & speed:
         self.images = images
@@ -94,7 +94,7 @@ class New_Cannon():
                         
                         #DESTROY THE CANNON and create an explosion:
                         self.alive = False
-                        OTHERS.append(New_Effect(self.rect.center,"explosion_ship"))
+                        OTHERS.append(New_Effect(self.rect.center, "explosion_ship"))
                     else: BRICKS[-1].get_hit()
 
                     #Delete the bullet:
@@ -173,7 +173,8 @@ class New_Cannon():
         #If all gone, bring in another wave:
         if aliens_gone:
             self.alien_wave += 1
-            if self.alien_wave == 2: wave_text = "More aliens approaching!"
+            if self.alien_wave == 2:
+                wave_text = "More aliens approaching!"
             elif self.alien_wave == 3:
                 wave_text = "Still more? How many of them are there!?"
             elif self.alien_wave == 4:
@@ -228,7 +229,7 @@ class New_Alien():
 
     row_timer = 0
 
-    def __init__(self,x,y,row,image,health):
+    def __init__(self, x, y, row, image, health):
 
         #Set up own health and row:
         self.health = health
@@ -255,7 +256,7 @@ class New_Alien():
         #For keeping the ship high enough:
         self.starting_height = self.rect.bottom
 
-    def update(self,display):
+    def update(self, display):
 
         #For easier reading:
         ALIENS = OBJECTS[0]
@@ -333,7 +334,7 @@ class New_Alien():
                             print("Score:{:8} [{:^+5}]".format(OTHERS[0].score, score))
 
                         #There's a 10% chance the player gets a powerup:
-                        if randint(1,10) == 1:
+                        if randint(1, 10) == 1:
 
                             #If he doesn't have one already:
                             if not OTHERS[0].powerup_timer > 0:
@@ -359,14 +360,11 @@ class New_Alien():
                                 elif powerup == 3 and not OTHERS[0].barrier:
                                     OTHERS[0].barrier = True
                                     powerup_name = "Shield"
-                                    BRICKS.append(New_Wall(OTHERS[0].rect.center[0],
-                                                           OTHERS[0].rect.top - 3,
-                                                           GAME[5], 3, True))
+                                    BRICKS.append(New_Wall(OTHERS[0].rect.center[0], OTHERS[0].rect.top - 3, GAME[5], 3, True))
                                     
                                 print("\nYou gained a Power-Up! - [{}]\n".format(powerup_name))
 
-                    #If the player has died, just
-                    #play a sound & remove the bullet:
+                    #If the player has died, just play a sound & remove the bullet:
                     else:
                         if SOUNDS: SNDS[1].play()
                         BULLETS.remove(bullet)
@@ -453,8 +451,7 @@ class New_Alien():
 
         can_shoot = True
 
-        #The bottom row can always shoot, but we
-        #need special checks for the rows above:
+        #The bottom row can always shoot, but we need special checks for the rows above:
         if self.row != 2:
                 
             if len(ALIENS[self.row + 1]) == 6: can_shoot = False
@@ -485,7 +482,7 @@ class New_Alien():
 
 class New_Bullet(pygame.sprite.Sprite):
     
-    def __init__(self,x,y,speed,direction):
+    def __init__(self, x, y, speed, direction):
         pygame.sprite.Sprite.__init__(self)
 
         #Set up the width, height and image:
@@ -555,7 +552,7 @@ class New_Bullet(pygame.sprite.Sprite):
                     BULLETS.remove(bullet)
                     BULLETS.remove(self)
 
-                    OTHERS.append(New_Effect(self.rect.center,"explosion_bullet"))
+                    OTHERS.append(New_Effect(self.rect.center, "explosion_bullet"))
 
         #Remove self if going below or above the screen:
         if ((self.rect.bottom > screen.rect.bottom - 3) or
@@ -564,7 +561,7 @@ class New_Bullet(pygame.sprite.Sprite):
 
 class New_Wall(pygame.sprite.Sprite):
     
-    def __init__(self,x,y,images,health,barrier=False):
+    def __init__(self, x, y, images, health, barrier=False):
         pygame.sprite.Sprite.__init__(self)
 
         #The starting images:
@@ -627,7 +624,7 @@ class New_Wall(pygame.sprite.Sprite):
 
 class New_Effect:
 
-    def __init__(self,position,effect_type):
+    def __init__(self ,position, effect_type):
 
         #Animation speed default:
         self.speed = 4
@@ -675,7 +672,7 @@ class New_Effect:
 
 class New_Menu_Button():
 
-    def __init__(self,image,x,y,name,key):
+    def __init__(self, image, x, y, name, key):
 
         #Name & key (in the keyboard) of the button:
         self.name, self.key = name, key
@@ -753,8 +750,7 @@ def save_scores():
         for raw_line in scores:
             previous_scores.append(raw_line)
 
-    #If there are no previous saved high scores, save the score,
-    #and write "no data" to all the other levels:
+    #If there are no previous saved high scores, save the score and write "no data" to all the other levels:
     if not previous_scores:
         with open("games/invaders/scores.txt", 'w') as scores:
 
@@ -783,8 +779,7 @@ def save_scores():
                 scores.write(string)
                 previous_scores.append(string)
 
-    #If there are saved high scores, only write the
-    #new score if it was more than the previous one:
+    #If there are saved high scores, only write the new score if it was more than the previous one:
     else:
         with open("games/invaders/scores.txt", 'w') as scores:
 
@@ -848,10 +843,10 @@ def print_scores():
                 else: print("{:11}: {}".format(line.split(":")[0],"no data"))
             print()
 
-def init(x,y):
+def init(x, y):
     
     #Initialize the game, make the draggable box in the main window:
-    return New_Game(x,y,load_image("game_invaders.png",game=True))
+    return New_Game(x, y, load_image("game_invaders.png", game=True))
 
 def load_sounds():
     global SNDS
@@ -894,17 +889,16 @@ def load_game(console):
     #Some game settings:
     GAME = [game_mode, game_speed, game_menu, aliens, wall, barrier]
 
-    player = New_Cannon(screen.rect.center[0],
-                        screen.rect.bottom - 12, cannons, 2)
+    player = New_Cannon(screen.rect.center[0], screen.rect.bottom - 12, cannons, 2)
     
     OTHERS.append(player)
     OTHERS[0].alive = True
 
     #And the menu buttons:
-    BUTTONS.append(New_Menu_Button(menu_btns[0][0],21,70,"normal",K_n))
-    BUTTONS.append(New_Menu_Button(menu_btns[0][1],21,90,"hard",K_h))
-    BUTTONS.append(New_Menu_Button(menu_btns[0][2],21,110,"impossible",K_i))
-    BUTTONS.append(New_Menu_Button(menu_btns[0][3],21,140,"highscores",K_g))
+    BUTTONS.append(New_Menu_Button(menu_btns[0][0], 21, 70, "normal", K_n))
+    BUTTONS.append(New_Menu_Button(menu_btns[0][1], 21, 90, "hard", K_h))
+    BUTTONS.append(New_Menu_Button(menu_btns[0][2], 21, 110, "impossible", K_i))
+    BUTTONS.append(New_Menu_Button(menu_btns[0][3], 21, 140, "highscores", K_g))
     
     #Load the sounds, if available:
     if SOUNDS: load_sounds()
@@ -916,7 +910,7 @@ def load_game(console):
     
     print("\nLoaded Invaders!\n")
 
-def start_game(difficulty,increase=0):
+def start_game(difficulty, increase=0):
     global OBJECTS, GAME
 
     #Reset some game vars:

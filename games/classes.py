@@ -1,6 +1,6 @@
 #!usr/bin/env python3
 
-# Version 1.0.4 25.2.2014
+# Version 1.0.5 13.9.2014
 # Copyright 2014 Jere Oikarinen
 
 #    This file is part of RetPro.
@@ -25,7 +25,7 @@ from pygame.locals import *
 DEBUG = False
 
 #A function to drag the console and games around the screen:
-def dragNdrop(self,console,OBJECTS):
+def dragNdrop(self, console, OBJECTS):
     mouse_pos = pygame.mouse.get_pos()
     mouse_press = pygame.mouse.get_pressed()[0]
 
@@ -64,8 +64,8 @@ def dragNdrop(self,console,OBJECTS):
             obj.can_pick_up = True
 
 #Load an image and return a scaled (default = x3) surface:
-def load_image(file,scale=3,tiles=False,game=False):
-
+def load_image(file, scale=3, tiles=False, game=False):
+    
     if DEBUG and not tiles: print("[DEBUG] - Loading image '{}'".format(file))
 
     #Try to load & return the image:
@@ -85,8 +85,8 @@ def load_image(file,scale=3,tiles=False,game=False):
             print("[ERROR] - Failed to load image '{}', aborting!".format(file))
             pygame.quit(); sys.exit()
 
-#Replace a certain RGB color of a surface with another one:
-def replace_color(surface,olds,new):
+#Replace certain RGB colors of a surface with another one:
+def replace_color(surface, olds, new):
 
     #Get the surface width & height:
     img_width = pygame.Surface.get_width(surface)
@@ -105,8 +105,9 @@ def replace_color(surface,olds,new):
 
 #Load a sound file, return silence if not pygame.mixer:
 def load_sound(file):
+    
     if DEBUG: print("[DEBUG] - Loading sound '{}'".format(file))
-    sound_raw = os.path.join("sounds",file)
+    sound_raw = os.path.join("sounds", file)
 
     class Silence():
         def play(self): pass
@@ -116,9 +117,10 @@ def load_sound(file):
     return sound
 
 #Load a tileset with custom tile sizes, return as a list of lists:
-def load_tiles(file,width,height):
+def load_tiles(file, width, height):
+    
     if DEBUG: print("[DEBUG] - Loading tileset '{}'".format(file))
-    raw_image = load_image(file,tiles=True)
+    raw_image = load_image(file, tiles=True)
     img_width, img_height = raw_image.get_size()
     width, height = width*3, height*3
 
@@ -138,7 +140,7 @@ def load_tiles(file,width,height):
     #would be the on 5th column and the 3rd row in the tileset
 
 class New_Console():
-    def __init__(self,x,y,image):
+    def __init__(self, x, y,image):
 
         #Set up the image & rect:
         self.image = image
@@ -161,7 +163,7 @@ class New_Console():
     dragNdrop = dragNdrop
 
 class New_Game():
-    def __init__(self,x,y,image):
+    def __init__(self, x, y, image):
 
         #Set up the rect and the image:
         if image == "game_image_error":
@@ -191,7 +193,7 @@ class New_Game():
     dragNdrop = dragNdrop
 
 class New_Button():
-    def __init__(self,action,x,y,images,console):
+    def __init__(self, action, x, y, images,console):
 
         #The action of the button, the coordinates and images:
         self.action = action
@@ -202,20 +204,16 @@ class New_Button():
         self.width = pygame.Surface.get_width(self.images[0])
         self.height = pygame.Surface.get_height(self.images[0])
         
-        self.rect = pygame.Rect(console.rect.left + self.x,
-                                console.rect.top + self.y,
-                                self.width, self.height)
+        self.rect = pygame.Rect(console.rect.left + self.x, console.rect.top + self.y, self.width, self.height)
 
         #And again, a couple of bools:
         self.hovered = False
         self.pressed = False
 
-    def update(self,console,OBJECTS,GAMES,GAME_MODULES,BUTTONS,screen):
+    def update(self, console, OBJECTS, GAMES, GAME_MODULES, BUTTONS, screen):
 
         #Update the rect:
-        self.rect = pygame.Rect(console.rect.left + self.x,
-                                console.rect.top + self.y,
-                                self.width, self.height)
+        self.rect = pygame.Rect(console.rect.left + self.x, console.rect.top + self.y, self.width, self.height)
 
         #Set the correct image according to the mouse pos/press:
         if not self.hovered and not self.pressed:
@@ -230,8 +228,7 @@ class New_Button():
         mouse_press = pygame.mouse.get_pressed()[0]
 
         #If the mouse is inside the button's rect:
-        if ((self.rect.left < mouse_pos[0] < self.rect.right) and
-            (self.rect.top < mouse_pos[1] < self.rect.bottom)):
+        if ((self.rect.left < mouse_pos[0] < self.rect.right) and (self.rect.top < mouse_pos[1] < self.rect.bottom)):
 
             #Console can't be dragged, self is hovered:
             console.locked = True
@@ -290,7 +287,7 @@ class New_Button():
                 obj.locked = False if not obj.ON else True
 
 class New_Display():
-    def __init__(self,console):
+    def __init__(self, console):
 
         #Make a rect of the area in the console used to run the game in:
         self.x = console.rect.left + 84

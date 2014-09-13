@@ -1,6 +1,6 @@
 #!usr/bin/env python3
 
-# Version 1.0.2 25.2.2014
+# Version 1.0.3 13.9.2014
 # Copyright 2014 Jere Oikarinen
 
 #    This file is part of RetPro.
@@ -51,11 +51,8 @@ def main():
     #Set up the main console and it's buttons:
     supah_console = New_Console(120,120,console)
 
-    button1 = New_Button("start",12,12,[btn_imgs[0][0], btn_imgs[1][0],
-                                        btn_imgs[2][0]], supah_console)
-    
-    button2 = New_Button("stop",51,12,[btn_imgs[0][1], btn_imgs[1][1],
-                                       btn_imgs[2][1]], supah_console)
+    button1 = New_Button("start",12,12,[btn_imgs[0][0], btn_imgs[1][0], btn_imgs[2][0]], supah_console)
+    button2 = New_Button("stop",51,12,[btn_imgs[0][1], btn_imgs[1][1], btn_imgs[2][1]], supah_console)
     BUTTONS = [button1, button2]
 
     #Lists of the games and objects:

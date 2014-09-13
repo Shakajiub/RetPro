@@ -1,6 +1,6 @@
 #!usr/bin/env python3
 
-# Version 1.0.6 25.2.2014
+# Version 1.0.7 13.9.2014
 # Copyright 2014 Jere Oikarinen
 
 #    This file is part of RetPro.
@@ -40,7 +40,7 @@ D_GRAY = (140,140,140)
 
 class New_Paddle(pygame.sprite.Sprite):
     
-    def __init__(self,x,y):
+    def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
 
         #Set up the width, height and image:
@@ -135,8 +135,7 @@ class New_Paddle(pygame.sprite.Sprite):
         if len(BALLS) > 1:
             moving_balls = -1
 
-            #Go through all the balls, add +1 to moving_balls
-            #for each ball with a speed above zero:
+            #Go through all the balls, add +1 to moving_balls for each ball with a speed above zero:
             for ball in BALLS:
                 if ball.speed != 0:
                     moving_balls += 1
@@ -167,8 +166,8 @@ class New_Paddle(pygame.sprite.Sprite):
         if self.multiplier == 1.0:
             print("Score:{:8}".format(round(self.score)))
         else:
-            print("Score:{:8} | {:7}Multiplier".format(round(self.score),
-                                                       str(self.multiplier)), end="")
+            print("Score:{:8} | {:7}Multiplier".format(round(self.score), str(self.multiplier)), end="")
+
             #If the player gets bonus points:
             if total_extra_bonus > 0: print(" [ +{} ]\n".format(total_extra_bonus), end="")
             elif total_extra_bonus < 0: print(" [ {} ]\n".format(total_extra_bonus), end="")
@@ -179,7 +178,7 @@ class New_Paddle(pygame.sprite.Sprite):
 
 class New_Ball(pygame.sprite.Sprite):
     
-    def __init__(self,reset=True):
+    def __init__(self, reset=True):
         pygame.sprite.Sprite.__init__(self)
 
         #Set own width, height, speed and direction:
@@ -214,11 +213,9 @@ class New_Ball(pygame.sprite.Sprite):
             self.x = player.rect.center[0] - (self.width/2) + 1
 
         #A function to save up some space below:
-        def corner_bounce(self,other,less1,less2,less3,less4,direction,
-                          more1,more2,more3,more4,corner):
+        def corner_bounce(self, other, less1, less2, less3, less4, direction, more1, more2, more3, more4, corner):
             
-            if (((less1 < less2) and (less3 < less4)) and
-                ((more1 > more2) and (more3 > more4))):
+            if (((less1 < less2) and (less3 < less4)) and ((more1 > more2) and (more3 > more4))):
 
                 #Set the new position of the Ball, top left corner:
                 if corner == "tl":
@@ -266,18 +263,11 @@ class New_Ball(pygame.sprite.Sprite):
 
             bounced = False
             
-            #Bottom right corner:
-            if corner_bounce(self, brick, srl, brr, srt, brb, -45,
-                             srr, brr, srb, brb, "br"): bounced = True
-            #Bottom left corner:
-            if corner_bounce(self, brick, srt, brb, srl, brl, -135,
-                             srr, brl, srb, brb, "bl"): bounced = True
-            #Top right corner:
-            if corner_bounce(self, brick, srl, brr, srt, brt, 45,
-                             srb, brt, srr, brr, "tr"): bounced = True
-            #And the top left one:
-            if corner_bounce(self, brick, srl, brl, srt, brt, 135,
-                             srb, brt, srr, brl, "tl"): bounced = True
+            #Bottom right, bottom left, top right and top left corners:
+            if corner_bounce(self, brick, srl, brr, srt, brb, -45, srr, brr, srb, brb, "br"): bounced = True
+            if corner_bounce(self, brick, srt, brb, srl, brl, -135, srr, brl, srb, brb, "bl"): bounced = True
+            if corner_bounce(self, brick, srl, brr, srt, brt, 45, srb, brt, srr, brr, "tr"): bounced = True
+            if corner_bounce(self, brick, srl, brl, srt, brt, 135, srb, brt, srr, brl, "tl"): bounced = True
 
             #Some bools to help with the Ball bouncing checks:
             collided_top, collided_bottom = False, False
@@ -321,8 +311,7 @@ class New_Ball(pygame.sprite.Sprite):
                 dir_radians = radians(self.direction)
                 if sin(dir_radians) < 0:
 
-                    #Bounce vertically and set the position
-                    #outside the Brick to avoid hitting it twice:
+                    #Bounce vertically and set the position outside the Brick to avoid hitting it twice:
                     self.direction = (360-self.direction)%360
                     self.rect.bottom = brick.rect.top - 1
                     self.y = self.rect.y
@@ -439,7 +428,7 @@ class New_Ball(pygame.sprite.Sprite):
                     print("\n[GAME OVER] - No more lives!\n")
                     reset_game()
         
-    def bounce(self,diff):
+    def bounce(self, diff):
 
         if SOUNDS: SNDS[0].play()
 
@@ -463,7 +452,7 @@ class New_Ball(pygame.sprite.Sprite):
 
 class New_Brick(pygame.sprite.Sprite):
 
-    def __init__(self,x,y,health,color):
+    def __init__(self, x, y, health, color):
         pygame.sprite.Sprite.__init__(self)
 
         #Set up the width, height and health:
@@ -474,9 +463,8 @@ class New_Brick(pygame.sprite.Sprite):
         self.color = color; self.image.fill(self.color)
 
         #And the position of the rect:
-        self.rect = pygame.Rect(screen.rect.left + x,
-                                screen.rect.top + y,
-                                self.width, self.height)
+        self.rect = pygame.Rect(screen.rect.left + x, screen.rect.top + y, self.width, self.height)
+
     def get_hit(self):
 
         #Remove health, if possible:
@@ -484,9 +472,8 @@ class New_Brick(pygame.sprite.Sprite):
 
         #Or just destroy the Brick, if no health left:
         else:
-            #There is a pretty rare error, when two Balls hit a Brick
-            #simultaneously and try to destroy it, we want to catch that.
-            #It doesn't affect the game at all, though:
+            #There is a pretty rare error, when two Balls hit a Brick simultaneously and try
+            #to destroy it, we want to catch that. It doesn't affect the game at all, though:
             try:
                 for l in [OBJECTS, BRICKS]: l.remove(self)
 
@@ -508,8 +495,7 @@ class New_Brick(pygame.sprite.Sprite):
                     #An extra Ball bonus:
                     if bonus == "extra_ball":
 
-                        #If there's already a Ball locked to
-                        #the Paddle, don't give an extra one:
+                        #If there's already a Ball locked to the Paddle, don't give an extra one:
                         for ball in BALLS:
                             if ball.speed == 0:
                                 get_bonus = False
@@ -518,8 +504,7 @@ class New_Brick(pygame.sprite.Sprite):
 
                             if SOUNDS: SNDS[1].play()
 
-                            #Create the Ball, add it to the lists,
-                            #and inform the player of the bonus:
+                            #Create the Ball, add it to the lists, and inform the player of the bonus:
                             new_ball = New_Ball(False)
                             OBJECTS.append(new_ball)
                             BALLS.add(new_ball)
@@ -586,7 +571,7 @@ class New_Brick(pygame.sprite.Sprite):
 
 class New_Level_Select():
 
-    def __init__(self,image,x,y,num,key):
+    def __init__(self, image, x, y, num, key):
 
         #The level number and key (in the keyboard) of the button:
         self.num, self.key = num, key
@@ -654,7 +639,7 @@ class New_Level_Select():
         else: self.hovered, self.pressed = False, False
 
 class New_Menu_Button():
-    def __init__(self,x,y,image,key):
+    def __init__(self, x, y, image, key):
 
         #Set up the key (in the keyboard) and a timer:
         self.key = key
@@ -668,8 +653,7 @@ class New_Menu_Button():
 
         #And, again, set up the rect:
         self.rect = pygame.Rect(screen.rect.left + x, screen.rect.top + y,
-                                pygame.Surface.get_width(self.image),
-                                pygame.Surface.get_height(self.image))
+                                pygame.Surface.get_width(self.image), pygame.Surface.get_height(self.image))
     def update(self):
 
         #Set the correct image color:
@@ -815,8 +799,7 @@ def load_level():
 
 def level_code_9():
 
-    #The grand finale, just one life, no bonuses,
-    #and an infinite small paddle:
+    #The grand finale, just one life, no bonuses, and an infinite small paddle:
 
     #Set the vars:
     OBJECTS[0].timer = 0
@@ -844,8 +827,7 @@ def save_scores():
         for raw_line in scores:
             previous_scores.append(raw_line)
 
-    #If there are no previous saved high scores, save the score,
-    #and write "no data" to all the other levels:
+    #If there are no previous saved high scores, save the score and write "no data" to all the other levels:
     if not previous_scores:
         with open("games/breakout/scores.txt", 'w') as scores:
 
@@ -920,10 +902,10 @@ def print_scores():
                 row_num += 1
             print()
     
-def init(x,y):
+def init(x, y):
     
     #Initialize the game, make the draggable box in the main window:
-    return New_Game(x,y,load_image("game_breakout.png",game=True))
+    return New_Game(x, y, load_image("game_breakout.png", game=True))
 
 def load_sounds():
     global SNDS
@@ -948,7 +930,7 @@ def load_game(console):
     if DEBUG: print()
 
     #The Player's Paddle:
-    player = New_Paddle(100,159)
+    player = New_Paddle(100, 159)
     OBJECTS = [player]
 
     #The initial Ball:
@@ -958,11 +940,11 @@ def load_game(console):
     BALLS.add(ball)
 
     #Load the numbers (0-9) as a tileset:
-    NUMS = load_tiles("font_numbers.png",4,5)
+    NUMS = load_tiles("font_numbers.png", 4, 5)
 
     #The button for the highscores:
-    btn_imgs = load_tiles("breakout_buttons.png",46,5)
-    btn_highscores = New_Menu_Button(19,137,btn_imgs[0][0],K_h)
+    btn_imgs = load_tiles("breakout_buttons.png", 46, 5)
+    btn_highscores = New_Menu_Button(19, 137, btn_imgs[0][0], K_h)
 
     #And the background for the menu:
     BKG = load_image("breakout_menu.png")
@@ -971,13 +953,11 @@ def load_game(console):
 
     #Set up the level selection buttons:
     BUTTONS = []
-    positions = [[19,69], [39,69], [59,69], [79,69], [99,69],
-                 [19,89], [39,89], [59,89], [79,89], [99,89]]
+    positions = [[19,69], [39,69], [59,69], [79,69], [99,69], [19,89], [39,89], [59,89], [79,89], [99,89]]
     keys = [K_0, K_1, K_2, K_3, K_4, K_5, K_6, K_7, K_8, K_9]
     
     for btn in range(0,10):
-        BUTTONS.append(New_Level_Select(NUMS[btn][0],positions[btn][0],
-                                        positions[btn][1],btn,keys[btn]))
+        BUTTONS.append(New_Level_Select(NUMS[btn][0], positions[btn][0], positions[btn][1], btn, keys[btn]))
     BUTTONS.append(btn_highscores)
 
     #Load the sounds, if available:
@@ -1031,7 +1011,7 @@ def main(display):
         #Check if any balls hit the Player:
         if obj in BALLS:
             
-            balls_hit = pygame.sprite.spritecollide(OBJECTS[0],BALLS,False)
+            balls_hit = pygame.sprite.spritecollide(OBJECTS[0], BALLS, False)
             
             if obj in balls_hit:
                 OBJECTS[0].multiplier = 1

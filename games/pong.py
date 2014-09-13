@@ -1,6 +1,6 @@
 #!usr/bin/env python3
 
-# Version 1.0.7 25.2.2014
+# Version 1.0.8 13.9.2014
 # Copyright 2014 Jere Oikarinen
 
 #    This file is part of RetPro.
@@ -40,7 +40,7 @@ D_GRAY = (140,140,140)
 
 class New_Paddle(pygame.sprite.Sprite):
     
-    def __init__(self,control,x,y,speed,score_pos):
+    def __init__(self, control, x, y, speed, score_pos):
         pygame.sprite.Sprite.__init__(self)
 
         #Set up own width, height and image:
@@ -54,9 +54,8 @@ class New_Paddle(pygame.sprite.Sprite):
         #Set the positions (of the rect and the score), the speed and score:
         self.x, self.y, self.speed = x, y, speed
         self.score_pos, self.score = score_pos, 0
-        self.rect = pygame.Rect(screen.rect.left + self.x,
-                                screen.rect.top + self.y,
-                                self.width, self.height)
+        self.rect = pygame.Rect(screen.rect.left + self.x, screen.rect.top + self.y, self.width, self.height)
+        
     def update(self):
 
         #Get the correct movement/keys/speed according to the game mode:
@@ -99,8 +98,10 @@ class New_Paddle(pygame.sprite.Sprite):
                 if keys[K_UP]: self.rect.top -= self.speed
                 if keys[K_DOWN]: self.rect.bottom += self.speed
             elif self.control == "ai":
+                
                 #The LITERALLY "impossible" ai:
                 #self.rect.top = ball.rect.center[1] - self.height/2+1
+                
                 for i in range(4):
                     if horizontal_dir > 0:
                         if OBJECTS[2].rect.center[1] < self.rect.center[1]:
@@ -178,34 +179,36 @@ class New_Ball(pygame.sprite.Sprite):
                 self.rect.bottom = screen.rect.bottom - 1
                 self.y = self.rect.y
             
-    def add_score(self,boardW,boardL):
+    def add_score(self, boardW, boardL):
         global game_mode
 
         #Set the correct Player names to be displayed on the shell:
         if boardW == OBJECTS[0]:
             bW, bL = "Player", "AI"
-            if game_mode == "multi": bW, bL = "Player 1", "Player 2"
+            if game_mode == "multi":
+                bW, bL = "Player 1", "Player 2"
         elif boardW == OBJECTS[1]:
             bW, bL = "AI", "Player"
-            if game_mode == "multi": bW, bL = "Player 2", "Player 1"
+            if game_mode == "multi":
+                bW, bL = "Player 2", "Player 1"
 
         #Add score (if it's less than three) and print it:
         if boardW.score < 3:
-            print("\nPoint for the {}! The {} starts.\n".format(bW,bL))
+            print("\nPoint for the {}! The {} starts.\n".format(bW, bL))
             print("Press [Space] to release the Ball!\n")
             boardW.score += 1
 
         #Or restart the game (if it's the fourth point):
         else:
             if boardL.score != 0:
-                print("\nThe {} wins! ({}:{})\n".format(bW,boardW.score+1,boardL.score))
+                print("\nThe {} wins! ({}:{})\n".format(bW, boardW.score+1, boardL.score))
             else: print("\nA PERFECT victory for the {}! (4:0)\n".format(bW))
             boardW.score, boardL.score = 0, 0
             game_mode = "menu"
             
         self.reset(boardL)
 
-    def bounce(self,diff,board):
+    def bounce(self, diff, board):
         
         if SOUNDS: bounce.play()
 
@@ -239,23 +242,18 @@ class New_Ball(pygame.sprite.Sprite):
         OBJECTS[0].x, OBJECTS[0].y = 3, 70
         OBJECTS[1].x, OBJECTS[1].y = 219, 70
         
-        OBJECTS[0].rect = pygame.Rect(screen.rect.left + OBJECTS[0].x,
-                                      screen.rect.top + OBJECTS[0].y,
-                                      OBJECTS[0].width, OBJECTS[0].height)
-        
-        OBJECTS[1].rect = pygame.Rect(screen.rect.left + OBJECTS[1].x,
-                                      screen.rect.top + OBJECTS[1].y,
-                                      OBJECTS[1].width, OBJECTS[1].height)
+        OBJECTS[0].rect = pygame.Rect(screen.rect.left + OBJECTS[0].x, screen.rect.top + OBJECTS[0].y, OBJECTS[0].width, OBJECTS[0].height)
+        OBJECTS[1].rect = pygame.Rect(screen.rect.left + OBJECTS[1].x, screen.rect.top + OBJECTS[1].y, OBJECTS[1].width, OBJECTS[1].height)
 
         #Reset own speed and blast off towards either Paddle:
-        self.speed, self.direction = 0, randrange(-45,45)
+        self.speed, self.direction = 0, randrange(-45, 45)
         if starter == OBJECTS[0]: self.direction += 180
         elif starter == None:
             if randrange(2): self.direction += 180
 
 class New_Mode_Select():
     
-    def __init__(self,image,x,y,name,key):
+    def __init__(self, image, x, y, name, key):
 
         #The name and key (in the keyboard) of the button:
         self.name, self.key = name, key
@@ -273,9 +271,8 @@ class New_Mode_Select():
         #Finally, set up the rect:
         self.width = pygame.Surface.get_width(self.image)
         self.height = pygame.Surface.get_height(self.image)
-        self.rect = pygame.Rect(screen.rect.left + x,
-                                screen.rect.top + y,
-                                self.width, self.height)
+        self.rect = pygame.Rect(screen.rect.left + x, screen.rect.top + y, self.width, self.height)
+        
     def update(self):
         global game_mode
 
@@ -321,10 +318,10 @@ class New_Mode_Select():
             
         else: self.hovered, self.pressed = False, False
     
-def init(x,y):
+def init(x, y):
 
     #Initialize the game, make the draggable box in the main window:
-    return New_Game(x,y,load_image("game_pong.png",game=True))
+    return New_Game(x, y, load_image("game_pong.png", game=True))
 
 def load_sounds():
     global bounce, button
@@ -342,17 +339,17 @@ def load_game(console):
     screen = New_Display(console)
 
     #The Paddles and their scores' display positions:
-    player_score_pos = (screen.rect.center[0]-27,screen.rect.top+12)
-    ai_score_pos = (screen.rect.center[0]+16,screen.rect.top+12)
+    player_score_pos = (screen.rect.center[0]-27, screen.rect.top+12)
+    ai_score_pos = (screen.rect.center[0]+16, screen.rect.top+12)
     player = New_Paddle("player", 3, 70, 3, player_score_pos)
     ai = New_Paddle("ai", 219, 70, 3, ai_score_pos)
 
     #Mode selection buttons:
     if DEBUG: print("")
-    btn_imgs = load_tiles("pong_buttons.png",55,5)
-    btn_singl = New_Mode_Select(btn_imgs[0][0],21,81,"single",K_s)
-    btn_multi = New_Mode_Select(btn_imgs[0][1],21,101,"multi",K_m)
-    btn_impos = New_Mode_Select(btn_imgs[0][2],21,135,"impossible",K_i)
+    btn_imgs = load_tiles("pong_buttons.png", 55, 5)
+    btn_singl = New_Mode_Select(btn_imgs[0][0], 21, 81, "single", K_s)
+    btn_multi = New_Mode_Select(btn_imgs[0][1], 21, 101, "multi", K_m)
+    btn_impos = New_Mode_Select(btn_imgs[0][2], 21, 135, "impossible", K_i)
     BUTTONS = [btn_singl, btn_multi, btn_impos]
 
     #The initial Ball:
@@ -364,14 +361,14 @@ def load_game(console):
     ball.reset()
 
     #Load the numbers (0-9) as a tileset:
-    NUMS = load_tiles("font_numbers.png",4,5)
+    NUMS = load_tiles("font_numbers.png", 4, 5)
 
     #Self-explanatory:
     if SOUNDS: load_sounds()
 
     #Finally, load the backgrounds (menu and the main game):
     BKG = []
-    for img in ["pong_bkg.png","pong_menu.png"]:
+    for img in ["pong_bkg.png", "pong_menu.png"]:
         BKG.append(load_image(img))
     if DEBUG: print("")
     
