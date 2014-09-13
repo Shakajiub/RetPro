@@ -1,0 +1,21 @@
+# Version Changes:
+
+# 1.0.6 - Sound files changed from .wav to .ogg.
+# 1.0.6 - Menu buttons are dark gray when disabled (for a brief half
+# a second after pressing, to avoid jumping straight back to the game)
+
+# 1.0.5 - Renamed & edited some image files, since colors of any
+# surface can now be changed ingame with nice a function.
+
+# 1.0.4 - Moved the changelog to a folder along the other games.
+# Only the current version's changes should be written in the game file.
+
+# 1.0.3 - Fixed the menu (exiting to/from it)
+
+# 1.0.2 - Added a feature to release the Ball with spacebar, like in Breakout.
+# 1.0.2 - Fixed the correct Player not getting to start after a point.
+
+# 1.0.1 - Rewrote the Ball bouncing from the top and bottom screen edges,
+# for there was a glitch where it could potentially get stuck on either one.
+
+# 1.0.0 - First fully working game version.

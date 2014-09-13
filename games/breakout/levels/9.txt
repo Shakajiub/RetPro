@@ -1,0 +1,17 @@
+ 3 3  3 3
+ 11111111
+ 11111111
+ 11111111
+ 11111111
+ 11111111
+ 11111111
+3333333333
+3333333333
+
+333 33 333
+333 33 333
+333 33 333
+
+DESC=Level 9: "Fort No-Chance"
+DESC=Small Paddle, no Bonuses, and just one Life.
+DESC=This is the final challenge. Deal with it.
