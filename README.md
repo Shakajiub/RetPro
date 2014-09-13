@@ -19,7 +19,7 @@ Install them in the above order and you're good to go. Various Linux distros sho
 
 Launch **RetPro.py**, and you should see this (without the game started):
 
-![TITLE](/main.png)
+![TITLE](/images/main.png)
 
 Now drag one of the games from the right side to the slot on top of the console, and press the play-button on the top-left corner of the console to boot it up. You can also freely drag the console itself around the screen. The stop-button next to the play-button ends & "throws" the game out of the console. Various info is printed to the command-line window when anything of value happens in-game.
 
