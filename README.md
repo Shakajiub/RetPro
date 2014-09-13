@@ -4,7 +4,7 @@ A "handheld console" with clones of some legendary, classic games:
 
 - [Pong](#pong)
 - [Breakout](#breakout)
-- [Space Invaders](#invaders)
+- [Invaders](#invaders)
 
 
 ### Requirements (Windows)
