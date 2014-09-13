@@ -1,61 +1,46 @@
-# Version Changes:
+Version Changes (pre-github)
 
-# 1.1.2 - Reorganized the code.
+1.1.2 - Reorganized the code.
+1.1.1 - Spelling corrections/fixes.
+1.1.1 - Sound files changed from .wav to .ogg.
+1.1.0 - Reorganized parts of the code, moved stuff here and there.
+1.1.0 - All sounds are packed in a single global list.
+1.1.0 - The player position doesn't reset when a new alien wave arrives.
+1.1.0 - Added power-ups (10% chance to get one for each alien ship shot)
+1.1.0 - Aliens check for a smaller area under them for shooting.
+1.1.0 - Bullet speed increased, for the final time.
+1.1.0 - Bullets can hit each other, and explode mid-air [+1 point].
 
-# 1.1.1 - Spelling corrections/fixes.
-# 1.1.1 - Sound files changed from .wav to .ogg.
+1.0.1 - Aliens now appear at the center of the screen.
+1.0.1 - Bullet speed increased slightly.
+1.0.0 - Very well working game overall.
 
-# 1.1.0 - Reorganized parts of the code, moved stuff here and there.
-# 1.1.0 - All sounds are packed in a single global list.
-# 1.1.0 - The player position doesn't reset when a new alien wave arrives.
-# 1.1.0 - Added power-ups (10% chance to get one for each alien ship shot)
-# 1.1.0 - Aliens check for a smaller area under them for shooting.
-# 1.1.0 - Bullet speed increased, for the final time.
-# 1.1.0 - Bullets can hit each other, and explode mid-air [+1 point].
-# (Same explosion animation is displayed when a bullet hits a wall.)
+0.9.9 - Game speed increases for each alien wave eliminated.
+0.9.9 - Bullet speed is affected by difficulty.
+0.9.8 - The player starts at the center of the screen always.
+0.9.8 - Highscores are correctly saved/loaded.
+0.9.7 - Starting coding on saving/loading/displaying the highscores (very buggy).
+0.9.7 - Redesigned the way points are awarded, according to the difficulty.
+0.9.7 - Game continues for as long as you're alive. Extra rows of alien ships just keep on coming.
+0.9.6 - Added first difficulty versions (Normal, Hard & Impossible).
+0.9.6 - After dying, the game returns you to the main menu after a while.
+0.9.5 - Added a menu (difficulty buttons matter not).
+0.9.1 - Score is now displayed in the shell.
+0.9.1 - Reduced the amount of global vars drastically. Most of them are now stored in a single global list (OBJECTS).
+0.9.0 - There are now three types of alien ships (only visual, atm)
+0.9.0 - Walls now use image files that show their condition, instead of just ingame-drawn boxes.
 
-# 1.0.1 - Aliens now appear at the center of the screen.
-# 1.0.1 - Bullet speed increased slightly.
+0.8.0 - Alien ships now have health ranging from 1 to 3.
+0.8.0 - The player can no longer shoot through walls (wasn't intended)
 
-# 1.0.0 - Very well working game overall.
+0.7.1 - Reduced alien ships chance to "not shoot" to 25%
+0.7.0 - Alien ships, walls, bullets & the player somewhat finished.
 
-# 0.9.9 - Game speed increases for each alien wave eliminated.
-# 0.9.9 - Bullet speed is affected by difficulty.
+0.6.0 - Bricks/Walls done, they take damage if hit with an alien bullet.
 
-# 0.9.8 - The player starts at the center of the screen always.
-# 0.9.8 - Highscores are correctly saved/loaded.
+0.5.0 - Alien ships shoot if they have space below them (50% chance they don't).
 
-# 0.9.7 - Starting coding on saving/loading/displaying the highscores (very buggy).
-# 0.9.7 - Redesigned the way points are awarded, according to the difficulty.
-# 0.9.7 - Game continues for as long as you're alive.
-# (Extra rows of alien ships just keep on coming.)
+0.4.0 - The Alien ships are mostly done, only shooting/dying remains.
+0.4.0 - Bullets can be created, they move up/down with given speed and disappear at the bottom/top.
 
-# 0.9.6 - Added first difficulty versions (Normal, Hard & Impossible).
-# 0.9.6 - After dying, the game returns you to the main menu after a while.
-
-# 0.9.5 - Added a menu (difficulty buttons matter not).
-
-# 0.9.1 - Score is now displayed in the shell.
-# 0.9.1 - Reduced the amount of global vars drastically.
-# Most of them are now stored in a single global list (OBJECTS).
-
-# 0.9.0 - There are now three types of alien ships (only visual, atm)
-# 0.9.0 - Walls now use image files that show their condition,
-# instead of just ingame-drawn boxes.
-
-# 0.8.0 - Alien ships now have health ranging from 1 to 3.
-# 0.8.0 - The player can no longer shoot through walls (wasn't intended)
-
-# 0.7.1 - Reduced alien ships chance to "not shoot" to 25%
-# 0.7.0 - Alien ships, walls, bullets & the player somewhat done.
-# (the first "fully" working game version (needs a manual restart atm))
-
-# 0.6.0 - Bricks/Walls done, they take damage if hit with an alien bullet.
-
-# 0.5.0 - Alien ships shoot if they have space below them (50% chance they don't).
-
-# 0.4.0 - The Alien ships are mostly done, only shooting/dying remains.
-# 0.4.0 - Bullets can be created, they move up/down with given speed and
-# disappear at the bottom/top. If only we had something to hit!
-
-# 0.1.0 - Start of coding. Let's do this.
+0.1.0 - Start of coding. Let's do this.
