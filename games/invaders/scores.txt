@@ -1,3 +1,0 @@
-Normal:23
-Hard:1212
-Impossible:no data
