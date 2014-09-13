@@ -1,35 +1,26 @@
 Version Changes (pre-github)
 
 1.0.6 - Reorganized the code, yet again.
-
 1.0.5 - Sound files changed from .wav to .ogg.
 1.0.5 - Reorganized parts of the code, moved stuff here and there.
 1.0.5 - All sounds are packed in a single global list.
 1.0.5 - Level selection buttons (0-9) go dark after pressing for half a second.
-
 1.0.4 - Changed the way highscores are displayed in the menu.
 1.0.4 - Small edits here and there, mainly tweaking the ball bouncing.
-
 1.0.3 - Menu buttons are dark gray when disabled (for a brief half a second after pressing, to avoid "pressing" them again)
-
 1.0.2 - Fixed the highscores button not showing the score from level 0.
 1.0.2 - Renamed & edited some image files, since colors of any surface can now be changed ingame with nice a function.
-
 1.0.1 - Moved the changelog to a folder along the other games.
-1.0.1 - Can no longer get bonuses/curses with the last remaining Brick.
-1.0.1 - A complete rewrite of the damn annoying Ball bouncing. It's now done in an ugly, repeating, non-pythonic, yet foolproof way.
+1.0.1 - Can no longer get bonuses/curses with the last remaining brick.
+1.0.1 - A complete rewrite of the damn annoying ball bouncing. It's now done in an ugly, repeating, non-pythonic, yet (hopefully) foolproof way.
 
 1.0.0 - Game finished. Mostly. Fixed the menu (exiting to/from it).
-(The Ball bouncing is still edgy, hope I don't have to code that ever again.)
+(The ball bouncing is still edgy, hope I don't have to code that ever again.)
 
-0.9.9 - Redesigned some levels and rewrote parts of the Ball's bouncing logic.
-0.9.9 - Added a new bonus; "Time Distortion", that halves the Ball(s)'s speed.
-
-0.9.8 - Finished the levels, and added a possibility to run a custom function for each one. "level_code_3()" would run (if existed) along level 3, etc.
-
+0.9.9 - Redesigned some levels and rewrote parts of the ball's bouncing logic.
+0.9.9 - Added a new bonus; "Time Distortion", that halves the ball(s)'s speed.
+0.9.8 - Finished the levels, added a possibility to run a custom function for each one.
 0.9.6 - Redesigned the menu, added a button to view the high scores.
-
-0.9.4 - The Paddle is now moved with the mouse only.
-0.9.4 - Added first versions of the special bonuses/curses, so far just extra Balls and larger/smaller Paddles.
-
+0.9.4 - The paddle is now moved with the mouse only.
+0.9.4 - Added first versions of the special bonuses/curses, so far just extra balls and larger/smaller paddles.
 0.9.0 - Initial commenting, fairly well working game overall.
