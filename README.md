@@ -1,3 +1,6 @@
+Sorry, I'm figuring things out, now idea how this all works.
+
+
 RetPro
 ======
 
@@ -7,8 +10,6 @@ Includes clones of a few classic games, currently Pong, Breakout & Space Invader
 
 Requirements
 ------------
-
-Links for Windows:
 
 Python 3.3.5 (should work with newer version without troubles)
 
