@@ -18,10 +18,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with RetPro.  If not, see <http://www.gnu.org/licenses/>.
 
-# Version Changes (rest in "./changes/invaders.txt"):
-
-# 1.1.2 - Reorganized the code.
-
 import pygame, os
 from pygame.locals import *
 from random import randint

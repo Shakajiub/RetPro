@@ -18,12 +18,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with RetPro.  If not, see <http://www.gnu.org/licenses/>.
 
-# Version Changes (rest in "./changes/pong.txt"):
-
-# 1.0.7 - Reorganized the code.
-# 1.0.7 - Redesigned the AI. It now sticks to the vertical center of
-# the board, allowing it to react to the ball better. IMPOSSIBLE AI IS SCARY.
-
 import pygame
 from pygame.locals import *
 from random import randrange

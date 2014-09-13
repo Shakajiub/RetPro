@@ -18,10 +18,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with RetPro.  If not, see <http://www.gnu.org/licenses/>.
 
-# Version Changes (rest in "./changes/breakout.txt"):
-
-# 1.0.6 - Reorganized the code, yet again.
-
 import pygame
 from pygame.locals import *
 from random import randrange, randint

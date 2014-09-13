@@ -1,5 +1,7 @@
 # Version Changes:
 
+# 1.1.2 - Reorganized the code.
+
 # 1.1.1 - Spelling corrections/fixes.
 # 1.1.1 - Sound files changed from .wav to .ogg.
 

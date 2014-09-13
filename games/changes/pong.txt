@@ -1,5 +1,9 @@
 # Version Changes:
 
+# 1.0.7 - Reorganized the code.
+# 1.0.7 - Redesigned the AI. It now sticks to the vertical center of
+# the board, allowing it to react to the ball better. IMPOSSIBLE AI IS SCARY.
+
 # 1.0.6 - Sound files changed from .wav to .ogg.
 # 1.0.6 - Menu buttons are dark gray when disabled (for a brief half
 # a second after pressing, to avoid jumping straight back to the game)

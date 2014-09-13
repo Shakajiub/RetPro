@@ -1,5 +1,7 @@
 # Version Changes:
 
+# 1.0.6 - Reorganized the code, yet again.
+
 # 1.0.5 - Sound files changed from .wav to .ogg.
 # 1.0.5 - Reorganized parts of the code, moved stuff here and there.
 # 1.0.5 - All sounds are packed in a single global list.

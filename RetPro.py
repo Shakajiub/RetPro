@@ -18,14 +18,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with RetPro.  If not, see <http://www.gnu.org/licenses/>.
 
-# Version Changes:
-
-# 1.0.2 - Reorganized the code.
-
-# 1.0.1 - Renamed & edited some image files, since colors of any
-# surface can now be changed ingame with nice a function.
-# 1.0.0 - Initial commenting, everything works well.
-
 import pygame, sys
 import games.pong
 import games.breakout

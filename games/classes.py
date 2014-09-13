@@ -18,16 +18,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with RetPro.  If not, see <http://www.gnu.org/licenses/>.
 
-# Version Changes:
-
-# 1.0.4 - Reorganized the code.
-
-# 1.0.3 - Picking up a game moves it to the end of the OBJECTS list,
-# so that is is drawn last to the screen, "above" all the other games.
-# 1.0.2 - Added a function to replace colors of any surface with a new one.
-# 1.0.1 - Added some safety/debugging to load_image()
-# 1.0.0 - Added some intense commenting.
-
 import pygame, sys, os
 from pygame.locals import *
 
