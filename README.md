@@ -39,4 +39,4 @@ Arguably the most fun game of them all. Choose a difficulty and start shooting. 
 
 ### Shoutouts
 
-[Bfxr](http://www.bfxr.net/) - An awesome little tool to make simple sound effects for games.
+- [Bfxr](http://www.bfxr.net/) - An awesome little tool to make simple sound effects for games. ([GitHub](https://github.com/increpare/bfxr))
