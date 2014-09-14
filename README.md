@@ -9,8 +9,8 @@ A "handheld console" with clones of some legendary, classic games:
 
 ### Requirements (Windows)
 
-- [Python 3.3.5](https://www.python.org/downloads/release/python-335) (should work with newer versions without troubles)
-- [Pygame 1.9.2](https://bitbucket.org/pygame/pygame/downloads) (same here, although I don't think any exit)
+- [Python 3.3.5](https://www.python.org/downloads/release/python-335) (latest version supported by pygame)
+- [Pygame 1.9.2](https://bitbucket.org/pygame/pygame/downloads)
 
 Install them in the above order and you're good to go. Various Linux distros should have these available via whatever package manager they use, although the game hasn't actually been tested on any (sorry!). I do plan on getting it running on Debian/Ubuntu and possibly Arch Linux.
 
