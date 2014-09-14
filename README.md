@@ -37,7 +37,6 @@ First time you start the game, only the first level (0) should be unlocked. Beat
 Arguably the most fun game of them all. Choose a difficulty and start shooting. Arrow keys move the spaceship, shoot with spacebar. Shoot all the alien ships to get more alien ships. Each time you get them all the game speed exponentially increases. You have varying amounts of "safety walls", depending on the difficulty. Again, pressing the highscores-button in the main menu (where you can retreat anytime with Escape) will print them to the command-line window. Similar to Breakout, for each alien ship you destroy, you have a chance of getting various bonuses.
 
 
+### Shoutouts
 
-##### Shoutouts
-
-[http://www.bfxr.net/](Bfxr "Bfxr") - An awesome little tool to make simple sound effects for games.
+[Bfxr](http://www.bfxr.net/) - An awesome little tool to make simple sound effects for games.
