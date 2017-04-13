@@ -1,6 +1,6 @@
 # RetPro
 
-A "handheld console" with clones of some legendary, classic games:
+A "handheld console" with clones of some legendary, classic games. WARNING - This was my first actual finished project with Python. The commenting is terrible and I fear taking a look at the code. Someday I might clean it up, but for now it's here only for historical purposes.
 
 - [Pong](#pong)
 - [Breakout](#breakout)
@@ -12,7 +12,7 @@ A "handheld console" with clones of some legendary, classic games:
 - [Python 3.3.5](https://www.python.org/downloads/release/python-335/) (latest version of pygame is for 3.3.x)
 - [Pygame 1.9.2](https://bitbucket.org/pygame/pygame/downloads)
 
-Install them in the above order and you're good to go. Various Linux distros should have these available via whatever package manager they use, although the game hasn't actually been tested on any (sorry!).
+Install them in the above order and you're good to go. Various Linux distros should have these available via whatever package manager they use, although the game hasn't actually been tested on any.
 
 
 ### Starting/Playing
